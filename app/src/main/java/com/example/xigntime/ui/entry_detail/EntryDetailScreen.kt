@@ -15,6 +15,7 @@ import java.time.Instant
 
 //generic placeholder for the time being
 
+/*
 @Composable
 fun EntryDetailScreen(
     onPopBackStack: () -> Unit,
@@ -90,4 +91,4 @@ fun EntryDetailScreen(
             //TODO: add rest of entry textfields
         }
     }
-}
+}*/

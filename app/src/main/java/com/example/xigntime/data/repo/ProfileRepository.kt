@@ -11,5 +11,5 @@ interface ProfileRepository {
 
     suspend fun getProfileById(profileId: Int): Profile
 
-    fun getUser(): Flow<List<Profile>>
+    fun getProfile(): Flow<List<Profile>>
 }

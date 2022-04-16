@@ -2,7 +2,7 @@ package com.example.xigntime.data.relations
 
 import androidx.room.Embedded
 import androidx.room.Relation
-import com.example.xigntime.data.entities.Entry
+import com.example.xigntime.data.entities.WorkEntry
 import com.example.xigntime.data.entities.WorkDay
 
 data class WorkDayWithEntries(
@@ -11,6 +11,6 @@ data class WorkDayWithEntries(
         parentColumn = "workDayId",
         entityColumn = "workDayId"
     )
-    val entries: List<Entry>
+    val workEntries: List<WorkEntry>
 ) {
 }

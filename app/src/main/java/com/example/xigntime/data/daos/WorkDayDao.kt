@@ -1,10 +1,7 @@
 package com.example.xigntime.data.daos
 
 import androidx.room.*
-import com.example.xigntime.data.entities.Target
 import com.example.xigntime.data.entities.WorkDay
-import com.example.xigntime.data.relations.WorkDayWithEntries
-import com.example.xigntime.data.relations.WorkDayWithTargets
 import kotlinx.coroutines.flow.Flow
 
 @Dao
@@ -27,11 +24,11 @@ interface WorkDayDao {
     fun getWorkDay(): Flow<List<WorkDay>>
 
     //TODO: add queries with
-    @Transaction
-    @Query("SELECT * FROM WorkDay WHERE workDayId = :workDay")
+/*    @Transaction
+    @Query("SELECT * FROM WorkDay WHERE workDayId = :workDayId")
     suspend fun getWorkDayWithEntries(workDay: WorkDay): List<WorkDayWithEntries>
 
     @Transaction
-    @Query("SELECT * FROM WorkDay WHERE workDayId = :workDay")
-    suspend fun getWorkDayWithTargets(workDay: WorkDay): List<WorkDayWithTargets>
+    @Query("SELECT * FROM WorkDay WHERE workDayId = :workDayId")
+    suspend fun getWorkDayWithTargets(workDay: WorkDay): List<WorkDayWithTargets>*/
 }

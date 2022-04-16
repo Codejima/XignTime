@@ -10,7 +10,7 @@ import java.util.*
 data class WorkDay(
     @PrimaryKey
     val workDayId: Int,
-    val workDayDate: LocalDate, //String, // TODO: add typeconverter for LocalDate for room
+    val workDayDate: String, // TODO: add typeconverter for LocalDate for room
     val profileId: Int
 ) {
 }

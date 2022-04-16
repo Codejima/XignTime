@@ -25,7 +25,7 @@ interface TargetDao {
     fun getTarget(): Flow<List<Target>>
 
     //TODO: add queries
-    @Transaction
+/*    @Transaction
     @Query("SELECT * FROM Target WHERE targetId = :target")
-    suspend fun getTargetIdWithUserName(target: Target): List<Target>
+    suspend fun getTargetIdWithUserName(target: Target): List<Target>*/
 }

@@ -8,13 +8,14 @@ import java.time.Instant
 //This entity is the "entry" table in our database
 // which contains all attributes of an entry.
 @Entity
-data class Entry(
+data class WorkEntry(
     @PrimaryKey
-    val entryId: Int,
+    val workEntryId: Long,
     val entryTitle: String,
-    val entryTimeStarted: Instant,
-    val entryTimeEnded: Instant?,
-    val entryTimeElapsed: Duration?,
-    val workDayId: Int,
-    val notesId: Int?
+    val entryTimeStarted: Long,
+    val entryTimeEnded: Long?,
+    val entryTimeElapsed: Long?,
+    val workDayId: Long,
+    val notesId: Long?
 )
+

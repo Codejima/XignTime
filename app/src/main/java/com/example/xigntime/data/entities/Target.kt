@@ -8,7 +8,7 @@ import java.sql.Time
 data class Target(
     @PrimaryKey
     val targetId: Int,
-    val targetHours: Time,
+    val targetHours: Long,
     val workDayId: Int,
     val categoryId: Int,
     val notesId: Int

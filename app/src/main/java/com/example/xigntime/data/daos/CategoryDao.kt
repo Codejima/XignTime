@@ -2,7 +2,6 @@ package com.example.xigntime.data.daos
 
 import androidx.room.*
 import com.example.xigntime.data.entities.Category
-import com.example.xigntime.data.entities.Entry
 import com.example.xigntime.data.relations.CategoryWithTarget
 import kotlinx.coroutines.flow.Flow
 
@@ -27,6 +26,6 @@ interface CategoryDao {
 
     //TODO: add queries with @Query
     @Transaction
-    @Query("SELECT * FROM Category WHERE categoryId = :category")
-    suspend fun getCategoryWithTarget(category: Category): List<CategoryWithTarget>
+    @Query("SELECT * FROM Category WHERE categoryId = :categoryId")
+    suspend fun getCategoryWithTarget(categoryId: Int): List<CategoryWithTarget>
 }

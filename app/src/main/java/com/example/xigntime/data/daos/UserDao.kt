@@ -1,7 +1,6 @@
 package com.example.xigntime.data.daos
 
 import androidx.room.*
-import com.example.xigntime.data.entities.Entry
 import com.example.xigntime.data.entities.User
 import kotlinx.coroutines.flow.Flow
 

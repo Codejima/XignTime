@@ -1,13 +1,12 @@
 package com.example.xigntime.ui.entry_detail
 
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.xigntime.data.entities.Entry
+import com.example.xigntime.data.entities.WorkEntry
 import com.example.xigntime.data.repo.EntryRepository
 import com.example.xigntime.util.UiEvent
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -26,19 +25,19 @@ class EntryDetailViewModel @Inject constructor(
 
     //var entry by mutableStateListOf<Entry?>(null) old
     //var entry by mutableState<Entry?>(null) alternative
-    var entry by mutableStateOf<Entry?>(null)
+    var entry by mutableStateOf<WorkEntry?>(null)
         private set
 
     var entryTitle by mutableStateOf("")
         private set
 
-    var entryTimeStarted by mutableStateOf(Instant.now())
+    var entryTimeStarted by mutableStateOf(1L)
         private set
 
-    var entryTimeEnded by mutableStateOf<Instant?>(null)
+    var entryTimeEnded by mutableStateOf<Long?>(null)
         private set
 
-    var entryTimeElapsed by mutableStateOf<Duration?>(null)
+    var entryTimeElapsed by mutableStateOf<Long?>(null)
         private set
 
     //TODO: add note via id?
@@ -47,12 +46,12 @@ class EntryDetailViewModel @Inject constructor(
     val uiEvent = _uiEvent.receiveAsFlow()
 
     init {
-        val entryId = savedStateHandle.get<Int>("entryId")!!
-        if (entryId != -1) {
+        val entryId = savedStateHandle.get<Long>("workEntryId")!!
+        if (entryId > -1) {
             viewModelScope.launch {
                 repository.getEntryById(entryId).let { entry ->
                     entryTitle = entry.entryTitle
-                    entryTimeStarted = entry.entryTimeStarted ?: null
+                    entryTimeStarted = entry.entryTimeStarted
                     entryTimeEnded = entry.entryTimeEnded
                     entryTimeElapsed = entry.entryTimeElapsed
                     this@EntryDetailViewModel.entry = entry
@@ -85,7 +84,8 @@ class EntryDetailViewModel @Inject constructor(
                         ))
                         return@launch
                     }
-                    if (entryTimeStarted.isAfter(entryTimeEnded)) {
+                    //TODO: use typeconverter
+                    /*if (entryTimeStarted.isAfter(entryTimeEnded)) {
                         sendUiEvent(UiEvent.ShowSnackbar(
                             message = "Start Time must be before End Time"
                         ))
@@ -100,7 +100,7 @@ class EntryDetailViewModel @Inject constructor(
                             return@launch
                         }
 
-                    }
+                    }*/
                     val entryCopy = entry
                     if (entryCopy == null) {
                         sendUiEvent(UiEvent.ShowSnackbar(
@@ -111,12 +111,12 @@ class EntryDetailViewModel @Inject constructor(
 
                     //TODO: how to handle the params here?
                     repository.insertEntry(
-                        Entry(
+                        WorkEntry(
                             entryTitle = entryTitle,
                             entryTimeStarted = entryTimeStarted,
                             entryTimeEnded = entryTimeEnded,
                             entryTimeElapsed =  entryTimeElapsed,
-                            entryId = entryCopy.entryId,
+                            workEntryId = entryCopy.workEntryId,
                             workDayId = entryCopy.workDayId,
                             notesId = entryCopy.notesId
                         )

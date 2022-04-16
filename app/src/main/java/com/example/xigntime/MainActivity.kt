@@ -9,8 +9,8 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.example.xigntime.data.AppDatabase
-import com.example.xigntime.ui.entry_detail.EntryDetailScreen
-import com.example.xigntime.ui.entry_list.EntryListScreen
+//import com.example.xigntime.ui.entry_detail.EntryDetailScreen
+//import com.example.xigntime.ui.entry_list.EntryListScreen
 import com.example.xigntime.ui.theme.XignTimeTheme
 import com.example.xigntime.util.Routes
 import dagger.hilt.android.AndroidEntryPoint
@@ -27,14 +27,14 @@ class MainActivity : AppCompatActivity() {
                 NavHost(navController = navController,
                     startDestination = Routes.ENTRY_LIST
                 ) {
-                    composable(Routes.ENTRY_LIST) {
+                    /*composable(Routes.ENTRY_LIST) {
                         EntryListScreen(
                             onNavigate = {
                                 navController.navigate(it.route)
                             }
                         )
-                    }
-                    composable(
+                    }*/
+                    /*composable(
                         route = Routes.ENTRY_DETAIL + "?entryId={entryId}",
                         arguments =  listOf(
                             navArgument(name = "entryId") {
@@ -46,13 +46,13 @@ class MainActivity : AppCompatActivity() {
                         EntryDetailScreen(onPopBackStack = {
                             navController.popBackStack()
                         })
-                    }
+                    }*/
                 }
             }
         }
 
 
         //TODO: necessito éso?
-        val dao = AppDatabase.getInstance(this).dao
+        //val userDao = AppDatabase.getInstance(this).userDao
     }
 }

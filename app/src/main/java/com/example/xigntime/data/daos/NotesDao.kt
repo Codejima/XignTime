@@ -3,7 +3,6 @@ package com.example.xigntime.data.daos
 import androidx.room.*
 import com.example.xigntime.data.entities.Notes
 import com.example.xigntime.data.entities.Target
-import com.example.xigntime.data.entities.WorkDay
 import kotlinx.coroutines.flow.Flow
 
 @Dao
@@ -26,11 +25,11 @@ interface NotesDao {
     fun getNotes(): Flow<List<Notes>>
 
     //TODO: add queries
-    @Transaction
-    @Query("SELECT * FROM Notes WHERE notesId = :notes")
-    suspend fun getNotesWithEntry(notes: Notes): List<EntryDao>
+/*    @Transaction
+    @Query("SELECT * FROM Notes WHERE notesId = :notesId")
+    suspend fun getNotesWithEntry(notesId: Notes): List<WorkEntryDao>*/
 
-    @Transaction
-    @Query("SELECT * FROM Notes WHERE notesId = :notes")
-    suspend fun getNotesWithTarget(notes: Notes): List<Target>
+/*    @Transaction
+    @Query("SELECT * FROM Notes WHERE notesId = :notesId")
+    suspend fun getNotesWithTarget(notesId: Notes): List<Target>*/
 }

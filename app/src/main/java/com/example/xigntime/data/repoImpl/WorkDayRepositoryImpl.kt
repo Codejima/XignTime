@@ -13,7 +13,8 @@ class WorkDayRepositoryImpl(
 ): WorkDayRepository {
 
     override suspend fun insertWorkDay(workDay: WorkDay) {
-        dao.insertWorkDay(workDay)    }
+        dao.insertWorkDay(workDay)
+    }
 
     override suspend fun deleteWorkDay(workDay: WorkDay) {
         dao.deleteWorkDay(workDay)

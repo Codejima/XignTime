@@ -6,8 +6,8 @@ import java.time.Instant
 sealed class EntryDetailEvent {
 
     data class OnEntryTitleChange(val entryTitle: String): EntryDetailEvent()
-    data class OnTimeStartedChange(val entryTimeStarted: Instant): EntryDetailEvent()
-    data class OnTimeEndedChange(val entryTimeEnded: Instant): EntryDetailEvent()
+    data class OnTimeStartedChange(val entryTimeStarted: Long): EntryDetailEvent()
+    data class OnTimeEndedChange(val entryTimeEnded: Long): EntryDetailEvent()
     data class OnEntryNotesChange(val entryNotes: String): EntryDetailEvent()
     object OnSaveEntryClick: EntryDetailEvent()
     object OnCancelEntryClick: EntryDetailEvent()

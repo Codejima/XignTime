@@ -16,9 +16,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.xigntime.util.UiEvent
-import kotlinx.coroutines.flow.collect
 
 //generic placeholder for the time being
+/*
 @Composable
 fun EntryListScreen(
     onNavigate: (UiEvent.Navigate) -> Unit,
@@ -59,9 +59,10 @@ fun EntryListScreen(
         LazyColumn(
             modifier = Modifier.fillMaxSize()
         ) {
-            items(entries.value) { entry ->
+            */
+/*items(entries.value) { entry ->
                 EntryItem(
-                    entry = entry,
+                    workEntry = entry,
                     onEvent = viewModel::onEvent,
                     modifier = Modifier
                         .fillMaxWidth()
@@ -70,7 +71,8 @@ fun EntryListScreen(
                         }
                         .padding(16.dp)
                 )
-            }
+            }*//*
+
         }
     }
-}
+}*/

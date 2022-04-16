@@ -29,7 +29,7 @@ object AppModule {
     @Provides
     @Singleton
     fun provideEntryRepository(db: AppDatabase): EntryRepository {
-        return EntryRepositoryImpl(db.entryDao())
+        return EntryRepositoryImpl(db.workEntryDao())
     }
 
     @Provides

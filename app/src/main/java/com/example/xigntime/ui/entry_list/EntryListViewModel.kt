@@ -27,7 +27,7 @@ class EntryListViewModel @Inject constructor(
         when(event) {
             is EntryListEvent.OnEntryClick -> {
                 //TODO: add event
-                sendUiEvent(UiEvent.Navigate(Routes.ENTRY_DETAIL + "?entryId${event.entry.entryId}"))
+                sendUiEvent(UiEvent.Navigate(Routes.ENTRY_DETAIL + "?workEntryId${event.workEntry.workEntryId}"))
             }
             is EntryListEvent.OnStartTimeMeasurement -> {
                 //TODO: add event

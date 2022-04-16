@@ -5,15 +5,13 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
-import com.example.xigntime.data.entities.Entry
+import com.example.xigntime.data.entities.WorkEntry
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.unit.sp
 
 //TODO: placeholder atm: needs better layout
-@Composable
+/*@Composable
 fun EntryItem(
-    entry: Entry,
+    workEntry: WorkEntry,
     onEvent: (EntryListEvent) -> Unit,
     modifier: Modifier = Modifier
 ) {
@@ -28,7 +26,7 @@ fun EntryItem(
             Row(
                 verticalAlignment = Alignment.CenterVertically
             ) {
-/*                Text(
+                Text(
                     text = entry.entryTitle,
                     fontSize = 20.sp,
                     fontWeight = FontWeight.Bold
@@ -47,8 +45,8 @@ fun EntryItem(
                     text = entry.entryTimeElapsed,
                     fontSize = 20.sp,
                     fontWeight = FontWeight.Bold
-                )*/
+                )
             }
         }
     }
-}
+}*/
