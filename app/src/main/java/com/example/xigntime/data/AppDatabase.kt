@@ -38,12 +38,12 @@ abstract class AppDatabase : RoomDatabase() {
     //TODO: which dao? every single dao? or should app-/xigntimedatabase be entrydatabase and create a database for every single dao?
     //TODO: change this dao to entry dao - add/use rest of daos in mainactivity if still necessary
 /*    abstract val workEntryDao: WorkEntryDao
-       abstract val userDao: UserDao
-       abstract val profileDao: ProfileDao
-       abstract val workDayDao: WorkDayDao
-       abstract val targetDao: TargetDao
-       abstract val notesDao: NotesDao
-       abstract val categoryDao: CategoryDao*/
+    abstract val userDao: UserDao
+    abstract val profileDao: ProfileDao
+    abstract val workDayDao: WorkDayDao
+    abstract val targetDao: TargetDao
+    abstract val notesDao: NotesDao
+    abstract val categoryDao: CategoryDao*/
 
     companion object {
         @Volatile

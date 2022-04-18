@@ -18,7 +18,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.xigntime.util.UiEvent
 
 //generic placeholder for the time being
-/*
+
 @Composable
 fun EntryListScreen(
     onNavigate: (UiEvent.Navigate) -> Unit,
@@ -59,8 +59,8 @@ fun EntryListScreen(
         LazyColumn(
             modifier = Modifier.fillMaxSize()
         ) {
-            */
-/*items(entries.value) { entry ->
+
+items(entries.value) { entry ->
                 EntryItem(
                     workEntry = entry,
                     onEvent = viewModel::onEvent,
@@ -71,8 +71,8 @@ fun EntryListScreen(
                         }
                         .padding(16.dp)
                 )
-            }*//*
+            }
 
         }
     }
-}*/
+}

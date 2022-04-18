@@ -1,7 +1,10 @@
 package com.example.xigntime.ui.entry_list
 
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.xigntime.data.entities.WorkEntry
 import com.example.xigntime.data.repo.EntryRepository
 import com.example.xigntime.util.Routes
 import com.example.xigntime.util.UiEvent
@@ -17,6 +20,7 @@ class EntryListViewModel @Inject constructor(
 ) : ViewModel() {
 
     val entries = repository.getEntry()
+    val screenName by mutableStateOf("Main")
 
     private val _uiEvent = Channel<UiEvent>()
     val uiEvent = _uiEvent.receiveAsFlow()
