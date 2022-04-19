@@ -61,7 +61,6 @@ class EntryDetailViewModel @Inject constructor(
     }
 
     //is triggered from the ui by interaction (event)
-    //
     fun onEvent(event: EntryDetailEvent) {
         when(event) {
             is EntryDetailEvent.OnEntryTitleChange -> {

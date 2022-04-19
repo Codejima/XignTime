@@ -1,39 +1,33 @@
 package com.example.xigntime.ui.entry_detail
 
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Check
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.example.xigntime.ui.destinations.EntryListScreenDestination
 import com.example.xigntime.util.UiEvent
+import com.ramcosta.composedestinations.annotation.Destination
+import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 import kotlinx.coroutines.flow.collect
 import java.time.Instant
 
 //generic placeholder for the time being
+@Destination
 @Composable
 fun EntryDetailScreen(
-    onPopBackStack: () -> Unit,
+    navigator: DestinationsNavigator,
     viewModel: EntryDetailViewModel = hiltViewModel()
 ) {
+    val entry = viewModel.entry
     val scaffoldState = rememberScaffoldState()
-    LaunchedEffect(key1 = true) {
-        viewModel.uiEvent.collect { event ->
-            when(event) {
-                is UiEvent.PopBackStack -> onPopBackStack()
-                is UiEvent.ShowSnackbar -> {
-                    scaffoldState.snackbarHostState.showSnackbar(
-                        message = event.message,
-                        actionLabel = event.action
-                    )
-                }
-                else -> Unit
-            }
-        }
-    }
+
     //TODO: add cancel button
     Scaffold(
         scaffoldState = scaffoldState,
@@ -43,6 +37,7 @@ fun EntryDetailScreen(
         floatingActionButton = {
             FloatingActionButton(onClick = {
                 viewModel.onEvent(EntryDetailEvent.OnSaveEntryClick)
+                //navigator.navigate(EntryListScreenDestination())
             }) {
                 Icon(
                     imageVector = Icons.Default.Check,
@@ -87,6 +82,17 @@ fun EntryDetailScreen(
                 modifier = Modifier.fillMaxWidth()
             )
             //TODO: add rest of entry textfields
+        }
+    }
+    Column(
+        modifier = Modifier.fillMaxSize(),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Button(onClick = {
+            navigator.navigate(EntryListScreenDestination())
+        }) {
+            Text("Go back to Entry List Screen")
         }
     }
 }

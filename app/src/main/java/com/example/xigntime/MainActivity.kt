@@ -2,50 +2,21 @@ package com.example.xigntime
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.format.DateUtils
-import android.util.Log
 import androidx.activity.compose.setContent
-import androidx.activity.viewModels
-import androidx.compose.foundation.background
-import androidx.compose.foundation.border
-import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.verticalScroll
-import androidx.compose.material.Button
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.unit.dp
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.NavType
-import androidx.navigation.compose.NavHost
-import androidx.navigation.compose.composable
-import androidx.navigation.compose.rememberNavController
-import androidx.navigation.navArgument
 import com.example.xigntime.data.AppDatabase
 import com.example.xigntime.data.entities.Profile
 import com.example.xigntime.data.entities.User
 import com.example.xigntime.data.entities.WorkEntry
-import com.example.xigntime.presentation.ScreenShown
-import com.example.xigntime.ui.entry_detail.EntryDetailScreen
-import com.example.xigntime.ui.entry_list.EntryItem
-import com.example.xigntime.ui.entry_list.EntryListScreen
-import com.example.xigntime.ui.entry_list.EntryListViewModel
+import com.example.xigntime.ui.NavGraphs
 //import com.example.xigntime.ui.entry_detail.EntryDetailScreen
 //import com.example.xigntime.ui.entry_list.EntryListScreen
 //import com.example.xigntime.ui.entry_detail.EntryDetailScreen
 //import com.example.xigntime.ui.entry_list.EntryListScreen
 import com.example.xigntime.ui.theme.XignTimeTheme
-import com.example.xigntime.util.Routes
+import com.ramcosta.composedestinations.DestinationsNavHost
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
-import java.time.Duration
-import java.time.LocalTime
-import java.time.ZoneId
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
@@ -75,36 +46,14 @@ class MainActivity : AppCompatActivity() {
         }*/
         setContent {
             XignTimeTheme {
-                val navController = rememberNavController()
-                NavHost(navController = navController,
-                    startDestination = Routes.ENTRY_LIST
-                ) {
-                    composable(Routes.ENTRY_LIST) {
-                        EntryListScreen(
-                            onNavigate = {
-                                navController.navigate(it.route)
-                            }
-                        )
-                    }
-                    composable(
-                        route = Routes.ENTRY_DETAIL + "?entryId={entryId}",
-                        arguments =  listOf(
-                            navArgument(name = "entryId") {
-                                type = NavType.IntType
-                                defaultValue = -1
-                            }
-                        )
-                    ) {
-                        EntryDetailScreen(onPopBackStack = {
-                            navController.popBackStack()
-                        })
+                DestinationsNavHost(navGraph = NavGraphs.root)
+                        var userDao = AppDatabase.getInstance(this).userDao()
                     }
                 }
             }
         }
-        val userDao = AppDatabase.getInstance(this).userDao()
-    }
-}
+        //var userDao = AppDatabase.getInstance(this).userDao()
+
 
 /*
 @Composable
