@@ -12,5 +12,4 @@ data class WorkDayWithEntries(
         entityColumn = "workDayId"
     )
     val workEntries: List<WorkEntry>
-) {
-}
+)

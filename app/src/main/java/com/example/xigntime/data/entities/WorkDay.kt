@@ -12,5 +12,4 @@ data class WorkDay(
     val workDayId: Int,
     val workDayDate: String, // TODO: add typeconverter for LocalDate for room
     val profileId: Int
-) {
-}
+)

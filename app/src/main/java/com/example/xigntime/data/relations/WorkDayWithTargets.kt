@@ -12,5 +12,4 @@ data class WorkDayWithTargets(
         entityColumn = "workDayId"
     )
     val targets: List<Target>
-) {
-}
+)

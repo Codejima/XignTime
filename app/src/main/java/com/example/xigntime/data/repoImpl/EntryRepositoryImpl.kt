@@ -1,5 +1,6 @@
 package com.example.xigntime.data.repoImpl
 
+import androidx.lifecycle.LiveData
 import com.example.xigntime.data.daos.WorkEntryDao
 import com.example.xigntime.data.entities.WorkEntry
 import com.example.xigntime.data.repo.EntryRepository
@@ -21,7 +22,7 @@ class EntryRepositoryImpl(
         return workEntryDao.getEntryById(workEntryId)
     }
 
-    override fun getEntry(): Flow<List<WorkEntry>> {
+    override fun getEntry(): LiveData<List<WorkEntry>> {
         return workEntryDao.getEntry()
     }
 }

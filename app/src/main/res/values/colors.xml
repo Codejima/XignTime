@@ -6,5 +6,26 @@
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <color name="XignSysBlueDarker">#FF0D191E</color>
+    <color name="XignSysBlueDark">#FF162B34</color>
+    <color name="XignSysBlue">#FF203E4A</color>
+    <color name="XignSysBlue75">#FF3E7991</color>
+    <color name="XignSysBlue50">#FF72ABC2</color>
+    <color name="XignSysBlue25">#FFB8D5E1</color>
+    <color name="XignSysBlueLight">#FFE3EEF3</color>
+    <color name="XignSysOrangeDarker">#FF713900</color>
+    <color name="XignSysOrangeDark">#FFC66400</color>
+    <color name="XignSysOrange">#FFFF8F1C</color>
+    <color name="XignSysOrange75">#FFFFAB55</color>
+    <color name="XignSysOrange50">#FFFFC78D</color>
+    <color name="XignSysOrange25">#FFFFE3C6</color>
+    <color name="XignSysGreyDarker">#FF3A3A3B</color>
+    <color name="XignSysGreyDark">#FF656567</color>
+    <color name="XignSysGrey">#FF919193</color>
+    <color name="XignSysGrey75">#FFADADAE</color>
+    <color name="XignSysGrey50">#FFC8C8C9</color>
+    <color name="XignSysGrey25">#FFE3E3E4</color>
+    <color name="XignSysGreyLight">#FFFFF4E8</color>
 </resources>
+
+

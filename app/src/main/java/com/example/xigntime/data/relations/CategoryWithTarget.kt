@@ -12,5 +12,4 @@ data class CategoryWithTarget(
         entityColumn = "categoryId"
     )
     val targets: List<Target>
-) {
-}
+)

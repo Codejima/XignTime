@@ -1,10 +1,12 @@
 package com.example.xigntime.data.daos
 
+import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.example.xigntime.data.entities.WorkEntry
 import kotlinx.coroutines.flow.Flow
 
-//This Dao defines how to save data in the database (how it is accessed) and get data into room
+//This Dao defines how to save data in the database (how it is accessed)
+//and how to get data into room
 @Dao
 interface WorkEntryDao {
 
@@ -16,11 +18,11 @@ interface WorkEntryDao {
 
     //TODO: add queries and @Transaction annos where necessary
 
-    //@Transaction
+    @Transaction
     @Query("SELECT * FROM WorkEntry WHERE workEntryId = :workEntryId")
     suspend fun getEntryById(workEntryId: Long): WorkEntry
 
-    //@Transaction
+    @Transaction
     @Query("SELECT * FROM WorkEntry")
-    fun getEntry(): Flow<List<WorkEntry>>
+    fun getEntry(): LiveData<List<WorkEntry>> //Flow?
 }

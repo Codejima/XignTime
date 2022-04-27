@@ -8,5 +8,4 @@ data class Notes(
     @PrimaryKey
     val notesId: Int,
     val notesNote: String
-) {
-}
+)

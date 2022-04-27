@@ -12,5 +12,4 @@ data class NotesWithTarget(
         entityColumn = "notesId"
     )
     val targets: List<Target>
-) {
-}
+)

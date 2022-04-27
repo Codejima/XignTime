@@ -5,7 +5,7 @@ import androidx.room.PrimaryKey
 import java.time.Duration
 import java.time.Instant
 
-//This entity is the "entry" table in our database
+//This entity is the "entry" table in the database
 // which contains all attributes of an entry.
 @Entity
 data class WorkEntry(

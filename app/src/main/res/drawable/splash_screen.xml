@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:drawable="@color/XignSysBlueLight" />
+
+    <item android:drawable="@drawable/ic_xignsys_logo_web_rgb_72dpi" android:gravity="center" />
+
+</layer-list>

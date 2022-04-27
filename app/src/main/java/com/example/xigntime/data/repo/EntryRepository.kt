@@ -1,5 +1,6 @@
 package com.example.xigntime.data.repo
 
+import androidx.lifecycle.LiveData
 import com.example.xigntime.data.entities.WorkEntry
 import kotlinx.coroutines.flow.Flow
 
@@ -15,5 +16,5 @@ interface EntryRepository {
 
     suspend fun getEntryById(workEntryId: Long): WorkEntry
 
-    fun getEntry(): Flow<List<WorkEntry>>
+    fun getEntry(): LiveData<List<WorkEntry>>
 }

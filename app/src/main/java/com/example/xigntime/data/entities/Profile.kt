@@ -9,5 +9,4 @@ data class Profile(
     val profileId: Int,
     val profileName: String,
     val userId: Int
-) {
-}
+)

@@ -9,5 +9,4 @@ data class Category(
     val categoryId: Int,
     val categoryTag: Int,
     val categoryPriority: Int
-) {
-}
+)

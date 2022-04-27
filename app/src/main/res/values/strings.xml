@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">XignTime</string>
+    <string name="login">Login</string>
+    <string name="password_hint">Password...</string>
+    <string name="login_hint">Username...</string>
+    <string name="password_visible_content_description">Hide password</string>
+    <string name="password_hidden_content_description">Show password</string>
+    <string name="no_account_yet">No account yet?</string>
+    <string name="create_account">Create account!</string>
 </resources>

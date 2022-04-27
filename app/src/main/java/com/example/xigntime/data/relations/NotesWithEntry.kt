@@ -12,5 +12,4 @@ data class NotesWithEntry(
         entityColumn = "notesId"
     )
     val workEntries: List<WorkEntry>
-) {
-}
+)
