@@ -1,14 +1,19 @@
-package com.example.xigntime.presentation.login
+package com.example.xigntime.presentation.registration
 
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.xigntime.data.repo.UserRepository
+import com.example.xigntime.util.UiEvent
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.channels.Channel
+import kotlinx.coroutines.flow.receiveAsFlow
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class LoginViewModel @Inject constructor(
+class RegistrationViewModel @Inject constructor(
     private val repository: UserRepository
 ) : ViewModel() {
 
@@ -18,15 +23,6 @@ class LoginViewModel @Inject constructor(
     private val _passwordText = mutableStateOf("")
     val passwordText: State<String> = _passwordText
 
-    private val _showPassword = mutableStateOf(false)
-    val showPassword: State<Boolean> = _showPassword
-
-    private val _usernameError = mutableStateOf<String>("")
-    val usernameError: State<String> = _usernameError
-
-    private val _passwordError = mutableStateOf("")
-    val passwordError: State<String> = _passwordError
-
     fun setUsernameText(username: String) {
         _usernameText.value = username
     }
@@ -34,18 +30,5 @@ class LoginViewModel @Inject constructor(
     fun setPasswordText(password: String) {
         _passwordText.value = password
     }
-
-    fun setIsUsernameError(error: String) {
-        _usernameError.value = error
-    }
-
-    fun setIsPasswordError(error: String) {
-        _passwordError.value = error
-    }
-
-    fun setShowPassword(showPassword: Boolean) {
-        _showPassword.value = showPassword
-    }
-
 
 }

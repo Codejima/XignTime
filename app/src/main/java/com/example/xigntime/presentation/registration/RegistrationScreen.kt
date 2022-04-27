@@ -1,7 +1,8 @@
-package com.example.xigntime.presentation.login
+package com.example.xigntime.presentation.registration
 
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.*
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -15,18 +16,15 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.example.xigntime.R
 import com.example.xigntime.presentation.components.StandardTextField
+import com.example.xigntime.presentation.login.LoginViewModel
 import com.example.xigntime.presentation.theme.SpaceLarge
 import com.example.xigntime.presentation.theme.SpaceMedium
 import com.example.xigntime.presentation.theme.SpaceSmall
-import com.example.xigntime.presentation.util.Screen
-import com.ramcosta.composedestinations.annotation.Destination
 
-//generic placeholder for the time being
-@Destination
 @Composable
-fun LoginScreen(
+fun RegistrationScreen(
     navController: NavController,
-    viewModel: LoginViewModel = hiltViewModel()
+    viewModel: RegistrationViewModel = hiltViewModel()
 ) {
     Box(modifier = Modifier
         .fillMaxSize()
@@ -53,7 +51,6 @@ fun LoginScreen(
                 onValueChange = {
                     viewModel.setUsernameText(it)
                 },
-                error = viewModel.usernameError.value,
                 hint = stringResource(id = R.string.login_hint)
             )
             Spacer(modifier = Modifier.height(SpaceSmall))
@@ -63,27 +60,8 @@ fun LoginScreen(
                     viewModel.setPasswordText(it)
                 },
                 hint = stringResource(id = R.string.password_hint),
-                keyboardType = KeyboardType.Password,
-                error = viewModel.passwordError.value,
-                showPasswordToggle = viewModel.showPassword.value,
-                onPasswordToggleClick = {
-                    viewModel.setShowPassword(it)
-                }
+                keyboardType = KeyboardType.Password
             )
-            Spacer(modifier = Modifier.height(SpaceSmall))
-            Button(
-                onClick = { navController.navigate(Screen.MainScreen.route) },
-                modifier =  Modifier
-                    .align(Alignment.End)
-
-            ) {
-                Text(
-                    text = stringResource(id = R.string.login)
-
-                )
-
-            }
-
         }
         Text(
             text = buildAnnotatedString {
@@ -104,5 +82,7 @@ fun LoginScreen(
                 .align(Alignment.BottomCenter)
 
         )
+        //Button(onClick = { navController.navigate(Screen.MainScreen.route) })
+        Spacer(modifier = Modifier.height(SpaceSmall))
     }
 }
